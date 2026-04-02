@@ -1,3 +1,13 @@
+// ===== AUTO SCROLL TO CONTACT ON LOAD =====
+window.addEventListener('load', () => {
+  const contact = document.getElementById('contact');
+  if (contact) {
+    setTimeout(() => {
+      contact.scrollIntoView({ behavior: 'smooth' });
+    }, 300);
+  }
+});
+
 // ===== HERO IMAGE SLIDESHOW =====
 const heroImgs = document.querySelectorAll('.hero-img');
 if (heroImgs.length) {
@@ -8,6 +18,17 @@ if (heroImgs.length) {
     heroImgs[current].classList.add('active');
   }, 4000);
 }
+
+// ===== HERO IMAGE SCROLL ROTATION =====
+window.addEventListener('scroll', () => {
+  const heroSection = document.getElementById('home');
+  const heroImgWrap = document.querySelector('.hero-img-wrap');
+  if (!heroSection || !heroImgWrap) return;
+  const scrolled = window.scrollY;
+  const heroHeight = heroSection.offsetHeight;
+  const progress = Math.min(scrolled / heroHeight, 1);
+  heroImgWrap.style.transform = `rotate(${scrolled * 0.3}deg)`;
+});
 
 // ===== NAVBAR =====
 const navbar = document.getElementById('navbar');

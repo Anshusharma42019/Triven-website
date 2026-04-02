@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lato:wght@300;400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
-<body>
+<body onload="document.getElementById('contact').scrollIntoView()">
 
   <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
@@ -216,68 +216,38 @@
 
   <!-- CONTACT -->
   <section class="contact" id="contact">
-    <div class="container contact-grid">
-      <div class="contact-info">
-        <p class="section-tag">Get In Touch</p>
-        <h2>We'd Love to Hear From You</h2>
-        <p>Have questions about our products or need personalized Ayurvedic guidance? Reach out to us.</p>
-        <ul class="contact-details">
-          <li><i class="fas fa-map-marker-alt"></i> 12, Herbal Lane, Pune, Maharashtra 411001</li>
-          <li><i class="fas fa-phone"></i> +91 98765 43210</li>
-          <li><i class="fas fa-envelope"></i> hello@trivenayurveda.com</li>
-        </ul>
-        <div class="social-links">
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-facebook"></i></a>
-          <a href="#"><i class="fab fa-youtube"></i></a>
-          <a href="#"><i class="fab fa-whatsapp"></i></a>
+    <div class="container">
+      <div class="consult-grid">
+        <div class="consult-left">
+          <p class="section-tag">निःशुल्क परामर्श</p>
+          <h2>क्या आप <span>माइग्रेन, तनाव, सिरदर्द,</span> या अन्य स्वास्थ्य समस्याओं से पीड़ित हैं?</h2>
+          <p>फॉर्म भरें और हमारे आयुर्वेदिक विशेषज्ञ 24 घंटे के भीतर आपसे संपर्क करेंगे।</p>
+        </div>
+        <div class="consult-right">
+          <div class="consult-form-box">
+            <h3>डॉक्टर से परामर्श के लिए फॉर्म भरें..</h3>
+            <form class="contact-form" id="contactForm">
+              <div class="form-group">
+                <input type="text" placeholder="आपका नाम (Your Name) *" required />
+              </div>
+              <div class="form-group">
+                <input type="tel" placeholder="आपका फोन नंबर (Phone Number) *" required />
+              </div>
+              <div class="form-group">
+                <input type="text" placeholder="आपको क्या समस्या है? (What is your problem?) *" required />
+              </div>
+              <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">निःशुल्क परामर्श बुक करें <i class="fas fa-arrow-right"></i></button>
+              <ul class="consult-points" style="margin-top:16px;">
+                <li><i class="fas fa-check-circle"></i> निःशुल्क विशेषज्ञ परामर्श</li>
+                <li><i class="fas fa-check-circle"></i> 100% प्राकृतिक उपचार</li>
+                <li><i class="fas fa-check-circle"></i> व्यक्तिगत आयुर्वेदिक योजना</li>
+                <li><i class="fas fa-check-circle"></i> कोई साइड इफेक्ट नहीं</li>
+              </ul>
+              <p class="form-success" id="formSuccess"><i class="fas fa-check-circle"></i> संदेश भेजा गया! हम जल्द ही आपसे संपर्क करेंगे।</p>
+            </form>
+          </div>
         </div>
       </div>
-      <form class="contact-form" id="contactForm">
-        <div class="form-row">
-          <div class="form-group">
-            <label><i class="fas fa-user"></i> Full Name</label>
-            <input type="text" placeholder="Enter your full name" required />
-          </div>
-          <div class="form-group">
-            <label><i class="fas fa-envelope"></i> Email Address</label>
-            <input type="email" placeholder="Enter your email" required />
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label><i class="fas fa-phone"></i> Phone Number</label>
-            <input type="tel" placeholder="Enter your phone number" />
-          </div>
-          <div class="form-group">
-            <label><i class="fas fa-tag"></i> Subject</label>
-            <input type="text" placeholder="What is this about?" />
-          </div>
-        </div>
-        <div class="form-group">
-          <label><i class="fas fa-map-marker-alt"></i> Address</label>
-          <input type="text" placeholder="Enter your full address" />
-        </div>
-        <div class="form-group">
-          <label><i class="fas fa-exclamation-circle"></i> Problem / Concern</label>
-          <select required>
-            <option value="" disabled selected>Select your concern</option>
-            <option>Migraine &amp; Headache</option>
-            <option>Stress &amp; Anxiety</option>
-            <option>Digestive Issues</option>
-            <option>Sleep Problems</option>
-            <option>Product Inquiry</option>
-            <option>Order Issue</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label><i class="fas fa-comment-alt"></i> Message</label>
-          <textarea rows="5" placeholder="Describe your concern in detail..." required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Send Message <i class="fas fa-paper-plane"></i></button>
-        <p class="form-success" id="formSuccess"><i class="fas fa-check-circle"></i> Message sent! We'll get back to you soon.</p>
-      </form>
     </div>
   </section>
 
@@ -323,6 +293,28 @@
 
   <a href="#home" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
 
+  <!-- CALL NOW FLOATING BUTTON -->
+  <div class="call-float-bar">
+    <div class="doctor-online">
+      <img src="assets/Doctor1.png" alt="Doctor" class="call-bar-doctor" />
+      <span class="online-dot"></span>
+      <span>डॉक्टर ऑनलाइन हैं!</span>
+    </div>
+    <a href="tel:+919876543210" class="call-now-btn">
+      <i class="fas fa-phone-alt"></i> अभी कॉल करें
+    </a>
+  </div>
+
   <script src="Triven.js"></script>
+  <script>
+    const callBarDoc = document.querySelector('.call-bar-doctor');
+    const doctors = ['assets/Doctor1.png', 'assets/Doctor2.png'];
+    let idx = 0;
+    setInterval(() => {
+      idx = (idx + 1) % doctors.length;
+      callBarDoc.style.opacity = '0';
+      setTimeout(() => { callBarDoc.src = doctors[idx]; callBarDoc.style.opacity = '1'; }, 400);
+    }, 3000);
+  </script>
 </body>
 </html>
