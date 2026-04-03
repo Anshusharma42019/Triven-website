@@ -1,17 +1,25 @@
-// ===== SCROLL TO CONTACT ON LOAD =====
-if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+// scroll to contact on page load/refresh
 window.addEventListener('load', () => {
-  const contact = document.getElementById('contact');
-  if (contact) contact.scrollIntoView({ behavior: 'instant' });
+  setTimeout(() => {
+    const contact = document.getElementById('contact');
+    if (contact) contact.scrollIntoView({ behavior: 'smooth' });
+  }, 300);
+});
+
+// intercept all internal anchor clicks for smooth scroll
+document.addEventListener('click', e => {
+  const a = e.target.closest('a[href^="#"]');
+  if (!a) return;
+  const target = document.querySelector(a.getAttribute('href'));
+  if (!target) return;
+  e.preventDefault();
+  target.scrollIntoView({ behavior: 'smooth' });
+  if (navLinks) navLinks.classList.remove('open');
+  if (hamburger) hamburger.querySelector('i').className = 'fas fa-bars';
 });
 
 // ===== SCROLL PROGRESS BAR =====
-const progressBar = document.getElementById('scroll-progress') || (() => {
-  const bar = document.createElement('div');
-  bar.id = 'scroll-progress';
-  document.body.appendChild(bar);
-  return bar;
-})();
+const progressBar = document.getElementById('scroll-progress');
 
 // ===== NAVBAR + BACK TO TOP + PROGRESS (single scroll listener) =====
 const navbar = document.getElementById('navbar');
@@ -24,23 +32,13 @@ window.addEventListener('scroll', () => {
   const docHeight = document.documentElement.scrollHeight - window.innerHeight;
 
   // Progress bar
-  progressBar.style.width = (scrollY / docHeight * 100) + '%';
+  if (progressBar) progressBar.style.width = (scrollY / docHeight * 100) + '%';
 
   // Navbar shrink
   navbar.classList.toggle('scrolled', scrollY > 50);
 
   // Back to top
   if (backToTop) backToTop.classList.toggle('visible', scrollY > 400);
-
-  // Active nav link
-  sections.forEach(sec => {
-    const link = navLinks ? navLinks.querySelector(`a[href="#${sec.id}"]`) : null;
-    if (link) link.classList.toggle('active', scrollY + 90 >= sec.offsetTop && scrollY + 90 < sec.offsetTop + sec.offsetHeight);
-  });
-
-  // Hero image rotation
-  const heroImgWrap = document.querySelector('.hero-img-wrap');
-  if (heroImgWrap) heroImgWrap.style.transform = `rotate(${scrollY * 0.3}deg)`;
 }, { passive: true });
 
 // ===== HAMBURGER =====

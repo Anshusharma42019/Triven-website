@@ -51,8 +51,8 @@
     <div class="hero-right">
       <div class="hero-img-wrap">
         <div class="hero-img-bg"></div>
-        <img class="hero-img active" src="assets/homepage1.png" alt="Ayushira" />
-        <img class="hero-img" src="assets/homepage2.png" alt="Ayushira Combo" />
+        <!-- <img class="hero-img active" src="assets/homepage1.png" alt="Ayushira" />
+        <img class="hero-img" src="assets/homepage2.png" alt="Ayushira Combo" /> -->
       </div>
     </div>
     <div class="hero-scroll">
@@ -65,7 +65,7 @@
     <div class="container">
       <div class="section-header">
         <p class="section-tag">Why Ayurveda?</p>
-        <h2>The Triven Difference</h2>
+        <h2>Triven Difference</h2>
         <p class="section-sub">We blend 5,000 years of Ayurvedic science with modern quality standards to bring you wellness you can trust.</p>
       </div>
       <div class="benefits-grid">
@@ -103,31 +103,31 @@
       </div>
       <div class="products-grid">
         <div class="product-card">
-          <div class="product-img"><img src="assets/image1.jpeg" alt="Ayushira" /></div>
+          <div class="product-img"><img src="assets/productimg2.png" alt="Ayushira" /></div>
           <div class="product-info">
             <span class="product-badge">Bestseller</span>
             <h3>Ayushira</h3>
             <p>Advanced migraine support formula for fast relief and long-term head wellness.</p>
             <div class="product-footer">
-              <span class="price">₹599</span>
+              <span class="price">₹499</span>
               <button class="btn btn-primary btn-sm">Add to Cart</button>
             </div>
           </div>
         </div>
         <div class="product-card">
-          <div class="product-img"><img src="assets/image2.jpeg" alt="Ayushira Combo" /></div>
+          <div class="product-img"><img src="assets/productimg3.png" alt="Ayushira Combo" /></div>
           <div class="product-info">
             <span class="product-badge">New</span>
             <h3>Ayushira Combo</h3>
             <p>Complete wellness kit — Ayushira, Sirohara & Manasvini for mind and body balance.</p>
             <div class="product-footer">
-              <span class="price">₹449</span>
+              <span class="price">₹1199</span>
               <button class="btn btn-primary btn-sm">Add to Cart</button>
             </div>
           </div>
         </div>
         <div class="product-card">
-          <div class="product-img"><img src="assets/image1.jpeg" alt="Manasvini" /></div>
+          <div class="product-img"><img src="assets/productimgimg4.png" alt="Manasvini" /></div>
           <div class="product-info">
             <span class="product-badge">Popular</span>
             <h3>Manasvini</h3>
@@ -139,13 +139,13 @@
           </div>
         </div>
         <div class="product-card">
-          <div class="product-img"><img src="assets/image2.jpeg" alt="Sirohara" /></div>
+          <div class="product-img"><img src="assets/productimg5.png" alt="Sirohara" /></div>
           <div class="product-info">
             <span class="product-badge">Trending</span>
             <h3>Sirohara</h3>
             <p>Herbal oil and tablet combo for headache relief and scalp nourishment.</p>
             <div class="product-footer">
-              <span class="price">₹749</span>
+              <span class="price">₹199</span>
               <button class="btn btn-primary btn-sm">Add to Cart</button>
             </div>
           </div>
@@ -297,17 +297,20 @@
   <!-- CALL NOW FLOATING BUTTON -->
   <div class="call-float-bar">
     <div class="doctor-online">
-      <img src="assets/Doctor1.png" alt="Doctor" class="call-bar-doctor" />
+      <img src="assets/Doctor1.png" alt="Doctor" class="call-bar-doctor"/>
       <span class="online-dot"></span>
       <span>डॉक्टर ऑनलाइन हैं!</span>
     </div>
-    <a href="tel:+919876543210" class="call-now-btn">
+    <a href="tel:+91 7309523829" class="call-now-btn">
       <i class="fas fa-phone-alt"></i> अभी कॉल करें
     </a>
   </div>
 
   <script src="Triven.js"></script>
   <script>
+    if (window.location.hash === '#products') {
+      setTimeout(() => document.getElementById('products').scrollIntoView({ behavior: 'smooth' }), 100);
+    }
     const callBarDoc = document.querySelector('.call-bar-doctor');
     const doctors = ['assets/Doctor1.png', 'assets/Doctor2.png'];
     let idx = 0;
