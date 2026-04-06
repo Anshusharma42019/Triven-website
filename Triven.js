@@ -133,11 +133,28 @@ if (track) {
 // ===== CONTACT FORM =====
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
+  contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const success = document.getElementById('formSuccess');
-    success.classList.add('show');
-    e.target.reset();
-    setTimeout(() => success.classList.remove('show'), 4000);
+    const error = document.getElementById('formError');
+    try {
+      const res = await fetch('https://backend-triven-crm.vercel.app/api/v1/leads/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: document.getElementById('leadName').value,
+          phone: document.getElementById('leadPhone').value,
+          problem: document.getElementById('leadProblem').value
+        })
+      });
+      if (!res.ok) throw new Error();
+      success?.classList.add('show');
+      if (error) error.style.display = 'none';
+      e.target.reset();
+      setTimeout(() => success?.classList.remove('show'), 4000);
+    } catch {
+      if (error) error.style.display = 'block';
+      setTimeout(() => { if (error) error.style.display = 'none'; }, 4000);
+    }
   });
 }

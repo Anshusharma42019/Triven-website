@@ -17,7 +17,9 @@
   --transition: 0.3s ease;
 }
 
-html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+html, body { height: 100%; }
+html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+body { overflow-x: hidden; }
 
 
 
@@ -107,15 +109,16 @@ section { padding: 80px 0; }
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 1000;
-  padding: 18px 0;
+  height: 70px;
   background: var(--white);
   box-shadow: none;
-  transition: var(--transition);
+  transition: box-shadow var(--transition);
 }
 .navbar.scrolled {
-  background: var(--white);
-  box-shadow: none;
-  padding: 12px 0;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+.nav-container {
+  height: 100%;
 }
 .nav-container {
   max-width: 1200px;
@@ -170,7 +173,7 @@ section { padding: 80px 0; }
 
 /* ===== HERO ===== */
 .hero {
-  min-height: 60vh;
+  min-height: 100vh;
   background: url('assets/Productimg1.png') center/cover no-repeat;
   display: flex;
   align-items: center;
@@ -279,6 +282,7 @@ section { padding: 80px 0; }
 
 /* ===== PRODUCTS ===== */
 .products { background: var(--white); }
+.products .section-header h2 { margin-top: 1%; font-size: 1.4rem; }
 .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -324,6 +328,9 @@ section { padding: 80px 0; }
 .product-info p { color: var(--text-light); font-size: 0.9rem; margin-bottom: 16px; }
 .product-footer { display: flex; align-items: center; justify-content: space-between; }
 .price { font-size: 1.3rem; font-weight: 700; color: var(--gold); font-family: 'Playfair Display', serif; }
+.price-wrap { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.price-old { font-size: 0.95rem; color: var(--text-light); text-decoration: line-through; font-weight: 500; }
+.discount-badge { background: #e53e3e; color: #fff; font-size: 0.7rem; font-weight: 700; padding: 2px 7px; border-radius: 50px; letter-spacing: 0.5px; }
 
 /* ===== STATS BANNER ===== */
 .stats-banner {
@@ -514,6 +521,7 @@ section { padding: 80px 0; }
   gap: 40px;
   padding-bottom: 48px;
 }
+.footer-links-row { display: contents; }
 .footer-brand { display: flex; flex-direction: column; gap: 10px; }
 .footer-brand img { height: 48px; width: 48px; object-fit: contain; border-radius: 50%; }
 .footer-brand span { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--white); }
@@ -677,7 +685,7 @@ section { padding: 80px 0; }
 
 /* Tablet Portrait */
 @media (max-width: 900px) {
-  .hero { flex-direction: column; padding: 120px 24px 80px; gap: 32px; text-align: center; min-height: auto; }
+  .hero { flex-direction: column; padding: 120px 24px 80px; gap: 32px; text-align: center; min-height: 100vh; }
   .hero-left { align-items: center; }
   .hero-sub { margin: 0 auto; text-align: center; }
   .hero-btns { justify-content: center; }
@@ -710,7 +718,7 @@ section { padding: 80px 0; }
   .hamburger { display: block; }
   .section-header h2 { font-size: 1.9rem; }
   .section-header { margin-bottom: 36px; }
-  .hero { padding: 100px 20px 60px; gap: 28px; }
+  .hero { padding: 100px 20px 60px; gap: 28px; min-height: 100vh; }
   .hero-left h1 { font-size: 2rem; }
   .hero-img-wrap { width: 260px; height: 300px; }
   .hero-features { gap: 16px; }
@@ -727,6 +735,7 @@ section { padding: 80px 0; }
   .consult-form-box { padding: 24px 16px; }
   .consult-form-box h3 { font-size: 1.1rem; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+  .footer-links-row { display: contents; }
   .footer { margin-bottom: 56px; padding: 48px 0 0; }
   .back-to-top { bottom: 72px; right: 16px; }
 }
@@ -735,7 +744,7 @@ section { padding: 80px 0; }
 @media (max-width: 560px) {
   section { padding: 48px 0; }
   .container { padding: 0 14px; }
-  .hero { padding: 90px 14px 56px; flex-direction: column; gap: 24px; }
+  .hero { padding: 90px 14px 56px; flex-direction: column; gap: 24px; min-height: 100vh; }
   .hero-left h1 { font-size: 1.8rem; }
   .hero-sub { font-size: 0.95rem; }
   .hero-img-wrap { width: 220px; height: 260px; }
@@ -763,6 +772,8 @@ section { padding: 80px 0; }
   .consult-images { flex-direction: column; }
   .consult-images img { width: 100%; max-height: 280px; }
   .footer-grid { grid-template-columns: 1fr; gap: 20px; padding-bottom: 28px; }
+  .footer-links-row { display: flex; gap: 24px; }
+  .footer-links-row .footer-links { flex: 1; }
   .footer-brand { align-items: flex-start; }
   .newsletter-form { flex-direction: column; }
   .newsletter-form input { border-radius: 8px; width: 100%; }

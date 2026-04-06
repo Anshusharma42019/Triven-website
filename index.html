@@ -51,8 +51,8 @@
     <div class="hero-right">
       <div class="hero-img-wrap">
         <div class="hero-img-bg"></div>
-        <!-- <img class="hero-img active" src="assets/homepage1.png" alt="Ayushira" />
-        <img class="hero-img" src="assets/homepage2.png" alt="Ayushira Combo" /> -->
+        <img class="hero-img active" src="assets/homepage1.png" alt="Ayushira" />
+        <img class="hero-img" src="assets/homepage2.png" alt="Ayushira Combo" />
       </div>
     </div>
     <div class="hero-scroll">
@@ -97,7 +97,6 @@
   <section class="products" id="products">
     <div class="container">
       <div class="section-header">
-        <p class="section-tag">Our Range</p>
         <h2>Featured Products</h2>
         <p class="section-sub">Discover our bestselling Ayurvedic remedies for everyday wellness.</p>
       </div>
@@ -109,7 +108,7 @@
             <h3>Ayushira</h3>
             <p>Advanced migraine support formula for fast relief and long-term head wellness.</p>
             <div class="product-footer">
-              <span class="price">₹499</span>
+              <span class="price-wrap"><span class="price-old">₹699</span><span class="price">₹499</span><span class="discount-badge">29% OFF</span></span>
               <button class="btn btn-primary btn-sm">Add to Cart</button>
             </div>
           </div>
@@ -119,9 +118,9 @@
           <div class="product-info">
             <span class="product-badge">New</span>
             <h3>Ayushira Combo</h3>
-            <p>Complete wellness kit — Ayushira, Sirohara & Manasvini for mind and body balance.</p>
+            <p>Combo for Migraine — Ayushira, Sirohara & Manasvini for complete migraine relief.</p>
             <div class="product-footer">
-              <span class="price">₹1199</span>
+              <span class="price-wrap"><span class="price-old">₹2398</span><span class="price">₹1199</span><span class="discount-badge">50% OFF</span></span>
               <button class="btn btn-primary btn-sm">Add to Cart</button>
             </div>
           </div>
@@ -133,7 +132,7 @@
             <h3>Manasvini</h3>
             <p>Stress management blend to calm the mind, improve focus and cognitive function.</p>
             <div class="product-footer">
-              <span class="price">₹699</span>
+              <span class="price-wrap"><span class="price-old">₹999</span><span class="price">₹699</span><span class="discount-badge">30% OFF</span></span>
               <button class="btn btn-primary btn-sm">Add to Cart</button>
             </div>
           </div>
@@ -145,7 +144,7 @@
             <h3>Sirohara</h3>
             <p>Herbal oil and tablet combo for headache relief and scalp nourishment.</p>
             <div class="product-footer">
-              <span class="price">₹199</span>
+              <span class="price-wrap"><span class="price-old">₹399</span><span class="price">₹199</span><span class="discount-badge">50% OFF</span></span>
               <button class="btn btn-primary btn-sm">Add to Cart</button>
             </div>
           </div>
@@ -229,13 +228,13 @@
             <h3>डॉक्टर से परामर्श के लिए फॉर्म भरें..</h3>
             <form class="contact-form" id="contactForm">
               <div class="form-group">
-                <input type="text" placeholder="आपका नाम (Your Name) *" required />
+                <input type="text" id="leadName" placeholder="आपका नाम (Your Name) *" required />
               </div>
               <div class="form-group">
-                <input type="tel" placeholder="आपका फोन नंबर (Phone Number) *" required />
+                <input type="tel" id="leadPhone" placeholder="आपका फोन नंबर (Phone Number) *" required />
               </div>
               <div class="form-group">
-                <input type="text" placeholder="आपको क्या समस्या है? (What is your problem?) *" required />
+                <input type="text" id="leadProblem" placeholder="आपको क्या समस्या है? (What is your problem?) *" required />
               </div>
               <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">निःशुल्क परामर्श बुक करें <i class="fas fa-arrow-right"></i></button>
               <ul class="consult-points" style="margin-top:16px;">
@@ -245,6 +244,7 @@
                 <li><i class="fas fa-check-circle"></i> कोई साइड इफेक्ट नहीं</li>
               </ul>
               <p class="form-success" id="formSuccess"><i class="fas fa-check-circle"></i> संदेश भेजा गया! हम जल्द ही आपसे संपर्क करेंगे।</p>
+              <p id="formError" style="color:red;display:none;">❌ कुछ गलत हुआ। कृपया पुनः प्रयास करें।</p>
             </form>
           </div>
         </div>
@@ -260,6 +260,7 @@
         <span>Triven Ayurveda</span>
         <p>Rooted in tradition. Crafted for today.</p>
       </div>
+      <div class="footer-links-row">
       <div class="footer-links">
         <h4>Quick Links</h4>
         <ul>
@@ -277,6 +278,7 @@
           <li><a href="#">Manasvini</a></li>
           <li><a href="#">Sirohara</a></li>
         </ul>
+      </div>
       </div>
       <div class="footer-newsletter">
         <h4>Newsletter</h4>

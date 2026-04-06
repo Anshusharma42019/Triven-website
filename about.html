@@ -118,6 +118,15 @@
         <img src="assets/Trivenlogo.png" alt="Triven Ayurveda" />
         <span>Triven Ayurveda</span>
         <p>Rooted in tradition. Crafted for today.</p>
+      </div>
+      <div class="footer-links-row">
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="index.html#products">Products</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
         </ul>
       </div>
       <div class="footer-links">
@@ -128,6 +137,7 @@
           <li><a href="#">Manasvini</a></li>
           <li><a href="#">Sirohara</a></li>
         </ul>
+      </div>
       </div>
       <div class="footer-newsletter">
         <h4>Newsletter</h4>
@@ -144,7 +154,30 @@
   </footer>
 
   <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+
+  <!-- CALL NOW FLOATING BUTTON -->
+  <div class="call-float-bar">
+    <div class="doctor-online">
+      <img src="assets/Doctor1.png" alt="Doctor" class="call-bar-doctor"/>
+      <span class="online-dot"></span>
+      <span>डॉक्टर ऑनलाइन हैं!</span>
+    </div>
+    <a href="tel:+917309523829" class="call-now-btn">
+      <i class="fas fa-phone-alt"></i> अभी कॉल करें
+    </a>
+  </div>
+
   <script src="Triven.js"></script>
+  <script>
+    const callBarDoc = document.querySelector('.call-bar-doctor');
+    const doctors = ['assets/Doctor1.png', 'assets/Doctor2.png'];
+    let idx = 0;
+    setInterval(() => {
+      idx = (idx + 1) % doctors.length;
+      callBarDoc.style.opacity = '0';
+      setTimeout(() => { callBarDoc.src = doctors[idx]; callBarDoc.style.opacity = '1'; }, 400);
+    }, 3000);
+  </script>
 </body>
 </html>
 
