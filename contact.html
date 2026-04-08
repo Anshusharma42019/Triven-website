@@ -3,87 +3,142 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact - Triven Ayurveda</title>
+  <title>Contact Us — Triven Ayurveda</title>
+  <meta name="description" content="Get in touch with Triven Ayurveda for free Ayurvedic consultation, product queries, or wellness guidance. Our experts are ready to help." />
   <link rel="stylesheet" href="Triven.css" />
   <link rel="stylesheet" href="contact.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lato:wght@300;400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
+
   <div id="scroll-progress"></div>
 
   <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
     <div class="nav-container">
-      <div class="logo">
+      <a href="index.html" class="logo">
         <img src="assets/Trivenlogo.png" alt="Triven Ayurveda Logo" />
-        <span>Triven Ayurveda</span>
-      </div>
+        <div class="logo-text">
+          <span class="logo-name">Triven Ayurveda</span>
+          <span class="logo-tagline">Ancient · Pure · Trusted</span>
+        </div>
+      </a>
       <ul class="nav-links" id="navLinks">
-        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="index.html#products">Products</a></li>
+        <li><a href="products.html">Products</a></li>
         <li><a href="testimonials.html">Testimonials</a></li>
-        <li><a href="contact.html" class="active">Contact</a></li>
+        <li><a href="contact.html" class="active nav-cta">Free Consult</a></li>
       </ul>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-        <i class="fas fa-bars"></i>
+        <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
   <!-- PAGE HERO -->
   <section class="contact-hero">
+    <div class="bg-video-effect" style="background-image: url('https://images.unsplash.com/photo-1499529112087-3cb3b73cec95?q=80&w=1920&auto=format&fit=crop');"></div>
     <div class="container">
       <p class="section-tag">Get In Touch</p>
-      <h1>Contact Us</h1>
-      <p>Have questions? We'd love to hear from you.</p>
+      <h1>Contact <em>Us</em></h1>
+      <p>Have a question or want a free consultation? Our Ayurvedic experts are here to help you.</p>
     </div>
   </section>
 
   <!-- CONTACT SECTION -->
-  <section class="contact" style="padding-top: 60px;">
+  <section class="contact" style="background: var(--ivory); padding-top: 80px;">
     <div class="container contact-grid">
-      <div class="contact-info">
+      <div class="contact-info reveal-left">
         <p class="section-tag">Reach Out</p>
-        <h2>We'd Love to Hear From You</h2>
-        <p>Have questions about our products or need personalized Ayurvedic guidance? Reach out to us.</p>
+        <h2>We'd Love to<br/>Hear From You</h2>
+        <p>Have questions about our products or need personalised Ayurvedic guidance? Reach out — our experts will respond within 24 hours.</p>
         <ul class="contact-details">
-          <li><i class="fas fa-map-marker-alt"></i> 7/36, Muthamil Nagar, Kodungaiyur, Chennai - 600118</li>
-          <li><i class="fas fa-phone"></i> +91 98765 43210</li>
-          <li><i class="fas fa-envelope"></i> hello@trivenayurveda.com</li>
+          <li>
+            <i class="fas fa-map-marker-alt"></i>
+            <span>7/36, Muthamil Nagar, Kodungaiyur, Chennai - 600118</span>
+          </li>
+          <li>
+            <i class="fas fa-phone"></i>
+            <span>+91 73095 23829</span>
+          </li>
+          <li>
+            <i class="fas fa-envelope"></i>
+            <span>hello@trivenayurveda.com</span>
+          </li>
+          <li>
+            <i class="fas fa-clock"></i>
+            <span>Mon–Sat: 9:00 AM – 7:00 PM IST</span>
+          </li>
         </ul>
         <div class="social-links">
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-facebook"></i></a>
-          <a href="#"><i class="fab fa-youtube"></i></a>
-          <a href="#"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         </div>
       </div>
-      <form class="contact-form" id="contactForm">
-        <div class="form-group">
-          <input type="text" id="leadName" placeholder="Your Name" required />
+
+      <div class="reveal-right">
+        <div class="consult-form-box">
+          <h3>Send Us a Message</h3>
+          <p class="form-subtitle">We'll get back to you within 24 hours — guaranteed</p>
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <input type="text" id="leadName" placeholder="Your Full Name *" required />
+            </div>
+            <div class="form-group">
+              <input type="tel" id="leadPhone" placeholder="Phone Number *" required />
+            </div>
+            <div class="form-group">
+              <textarea id="leadProblem" rows="5" placeholder="Describe your health concern or query..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
+              Send Message <i class="fas fa-paper-plane"></i>
+            </button>
+            <p class="form-success" id="formSuccess"><i class="fas fa-check-circle"></i> Message sent! We'll get back to you soon.</p>
+            <p id="formError" style="color:#e74c3c;display:none;font-size:0.9rem;margin-top:8px;">❌ Something went wrong. Please try again.</p>
+          </form>
         </div>
-        <div class="form-group">
-          <input type="tel" id="leadPhone" placeholder="Phone Number" required />
-        </div>
-        <div class="form-group">
-          <textarea id="leadProblem" rows="5" placeholder="Describe your problem" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Send Message <i class="fas fa-paper-plane"></i></button>
-        <p class="form-success" id="formSuccess">✅ Message sent! We'll get back to you soon.</p>
-        <p class="form-error" id="formError" style="color:red;display:none;">❌ Something went wrong. Please try again.</p>
-      </form>
+      </div>
     </div>
   </section>
 
-  <!-- MAP PLACEHOLDER -->
+  <!-- CONSULTATION INFO STRIP -->
+  <section style="background: var(--cream-dark); padding: 60px 0;">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px;text-align:center;">
+        <div class="reveal">
+          <i class="fas fa-user-md" style="font-size:2rem;color:var(--forest-light);margin-bottom:12px;display:block;"></i>
+          <h4 style="font-family:'Cormorant Garamond',serif;color:var(--forest);font-size:1.15rem;margin-bottom:6px;">Expert Vaidyas</h4>
+          <p style="color:var(--text-muted);font-size:0.9rem;">Consult with experienced Ayurvedic doctors</p>
+        </div>
+        <div class="reveal">
+          <i class="fas fa-comments" style="font-size:2rem;color:var(--forest-light);margin-bottom:12px;display:block;"></i>
+          <h4 style="font-family:'Cormorant Garamond',serif;color:var(--forest);font-size:1.15rem;margin-bottom:6px;">Free Consultation</h4>
+          <p style="color:var(--text-muted);font-size:0.9rem;">No charges, no commitments required</p>
+        </div>
+        <div class="reveal">
+          <i class="fas fa-clock" style="font-size:2rem;color:var(--forest-light);margin-bottom:12px;display:block;"></i>
+          <h4 style="font-family:'Cormorant Garamond',serif;color:var(--forest);font-size:1.15rem;margin-bottom:6px;">24hr Response</h4>
+          <p style="color:var(--text-muted);font-size:0.9rem;">Our team responds within 24 hours</p>
+        </div>
+        <div class="reveal">
+          <i class="fas fa-lock" style="font-size:2rem;color:var(--forest-light);margin-bottom:12px;display:block;"></i>
+          <h4 style="font-family:'Cormorant Garamond',serif;color:var(--forest);font-size:1.15rem;margin-bottom:6px;">100% Private</h4>
+          <p style="color:var(--text-muted);font-size:0.9rem;">Your health data is completely private</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP -->
   <section class="contact-map">
     <div class="container">
       <div class="map-box">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d242118.02859562!2d73.72788!3d18.52435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf2e67461101%3A0x828d43bf9d9ee343!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000"
-          width="100%" height="380" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy">
+          width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy">
         </iframe>
       </div>
     </div>
@@ -94,36 +149,56 @@
     <div class="container footer-grid">
       <div class="footer-brand">
         <img src="assets/Trivenlogo.png" alt="Triven Ayurveda" />
-        <span>Triven Ayurveda</span>
-        <p>Rooted in tradition. Crafted for today.</p>
-        </ul>
+        <span class="footer-brand-name">Triven Ayurveda</span>
+        <p>Rooted in 5,000 years of tradition. Crafted for the modern world.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
       </div>
-      <div class="footer-links">
-        <h4>Products</h4>
-        <ul>
-          <li><a href="#">Ayushira</a></li>
-          <li><a href="#">Ayushira Combo</a></li>
-          <li><a href="#">Manasvini</a></li>
-          <li><a href="#">Sirohara</a></li>
-        </ul>
+      <div class="footer-links-row">
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="products.html">Ayushira</a></li>
+            <li><a href="products.html">Ayushira Combo</a></li>
+            <li><a href="products.html">Manasvini</a></li>
+            <li><a href="products.html">Sirohara</a></li>
+          </ul>
+        </div>
       </div>
       <div class="footer-newsletter">
         <h4>Newsletter</h4>
         <p>Get wellness tips and exclusive offers.</p>
         <div class="newsletter-form">
           <input type="email" placeholder="Enter your email" />
-          <button class="btn btn-primary">Subscribe</button>
+          <button class="btn btn-gold btn-sm">Subscribe</button>
         </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>© 2025 Triven Ayurveda. All rights reserved. | Made with <i class="fas fa-heart"></i> for wellness</p>
+    <div class="footer-bottom container">
+      <p>© 2025 Triven Ayurveda. All rights reserved. Made with <i class="fas fa-heart"></i> for wellness.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+      </div>
     </div>
   </footer>
 
   <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+
   <script src="Triven.js"></script>
 </body>
 </html>
-
-
