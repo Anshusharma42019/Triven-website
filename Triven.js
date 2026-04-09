@@ -142,6 +142,15 @@ const API_URL = window.location.hostname === '127.0.0.1' || window.location.host
   ? 'http://localhost:3000/api/v1/leads/submit' 
   : 'https://backend-triven-crm.vercel.app/api/v1/leads/submit';
 
+function setLoading(btn, loading, originalHTML) {
+  if (!btn) return;
+  btn.disabled = loading;
+  btn.innerHTML = loading
+    ? '<i class="fas fa-spinner fa-spin"></i> भेज रहे हैं...'
+    : originalHTML;
+  btn.style.opacity = loading ? '0.8' : '1';
+}
+
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
   contactForm.addEventListener('submit', async (e) => {
@@ -149,8 +158,9 @@ if (contactForm) {
     const success = document.getElementById('formSuccess');
     const error = document.getElementById('formError');
     const btn = contactForm.querySelector('button[type="submit"]');
-    
-    if (btn) { btn.disabled = true; btn.style.opacity = '0.7'; }
+    const originalHTML = btn ? btn.innerHTML : '';
+
+    setLoading(btn, true, originalHTML);
 
     try {
       const res = await fetch(API_URL, {
@@ -172,14 +182,12 @@ if (contactForm) {
       setTimeout(() => { if (success) success.classList.remove('show'); }, 5000);
     } catch (err) {
       if (error) {
-        error.textContent = '❌ Error: ' + err.message + ' (Check CORS or Network)';
+        error.textContent = '❌ कुछ गलत हुआ। कृपया पुनः प्रयास करें।';
         error.style.display = 'block';
-      } else {
-        alert("Error sending message: " + err.message);
       }
       setTimeout(() => { if (error) error.style.display = 'none'; }, 6000);
     } finally {
-      if (btn) { btn.disabled = false; btn.style.opacity = '1'; }
+      setLoading(btn, false, originalHTML);
     }
   });
 }
@@ -218,7 +226,9 @@ if (modalForm) {
     e.preventDefault();
     const success = document.getElementById('modalSuccess');
     const btn = modalForm.querySelector('button[type="submit"]');
-    if (btn) { btn.disabled = true; btn.style.opacity = '0.7'; }
+    const originalHTML = btn ? btn.innerHTML : '';
+
+    setLoading(btn, true, originalHTML);
 
     try {
       const res = await fetch(API_URL, {
@@ -240,11 +250,16 @@ if (modalForm) {
         const modal = document.getElementById('leadModal');
         if (modal) modal.classList.remove('show');
         if (success) success.style.display = 'none';
-      }, 3000); // Close modal 3 seconds after success
+      }, 3000);
     } catch (err) {
-      alert("Error: " + err.message + "\n(This is usually due to CORS policy blocking '127.0.0.1:5500' in your Vercel backend)");
+      const modal = document.getElementById('leadModal');
+      const errEl = document.createElement('p');
+      errEl.style.cssText = 'color:#e74c3c;font-size:0.88rem;margin-top:8px;text-align:center;';
+      errEl.textContent = '❌ कुछ गलत हुआ। कृपया पुनः प्रयास करें।';
+      modalForm.appendChild(errEl);
+      setTimeout(() => errEl.remove(), 5000);
     } finally {
-      if (btn) { btn.disabled = false; btn.style.opacity = '1'; }
+      setLoading(btn, false, originalHTML);
     }
   });
 }
