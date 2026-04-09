@@ -63,13 +63,20 @@ h1 em, .section-tag, .consult-left h2 span {
 
 /* ===== RESET ===== */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+  overflow-x: hidden;
+  max-width: 100%;
+}
 body {
   font-family: 'DM Sans', sans-serif;
   background: var(--cream);
   color: var(--text);
   line-height: 1.7;
   overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
 }
 body::before {
   content: '';
@@ -230,6 +237,7 @@ section { padding: 100px 0; }
   z-index: 1000;
   height: 78px;
   transition: all var(--dur-mid) var(--ease);
+  width: 100%;
 }
 .navbar::before {
   content: '';
@@ -249,18 +257,21 @@ section { padding: 100px 0; }
 .nav-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 28px;
+  padding: 0 20px;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: relative;
   z-index: 1;
+  min-width: 0;
 }
 .logo {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+  min-width: 0;
+  flex-shrink: 1;
 }
 .logo img {
   height: 44px; width: 44px;
@@ -273,10 +284,11 @@ section { padding: 100px 0; }
 .logo-text { display: flex; flex-direction: column; }
 .logo-name {
   font-family: 'Cinzel', serif;
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   color: var(--forest);
   font-weight: 600;
   line-height: 1;
+  white-space: nowrap;
 }
 .logo-tagline {
   font-size: 0.68rem;
@@ -376,6 +388,8 @@ section { padding: 100px 0; }
   gap: 80px;
   position: relative;
   overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
 }
 .hero-bg-pattern {
   position: absolute;
@@ -476,7 +490,7 @@ section { padding: 100px 0; }
 }
 .hero-img-wrap {
   position: relative;
-  width: 520px;
+  width: min(520px, 100%);
   height: 600px;
 }
 .hero-img-ring {
@@ -968,7 +982,9 @@ section { padding: 100px 0; }
   padding-bottom: 56px;
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
-.footer-links-row { display: contents; }
+.footer-links-row {
+  display: contents;
+}
 .footer-brand { display: flex; flex-direction: column; gap: 16px; }
 .footer-brand img { height: 52px; width: 52px; object-fit: contain; border-radius: 50%; }
 .footer-brand-name {
@@ -1355,7 +1371,7 @@ section { padding: 100px 0; }
   .products-grid { grid-template-columns: repeat(2, 1fr); }
   .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
   .stat:not(:last-child)::after { display: none; }
-  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
 }
 
 @media (max-width: 1024px) {
@@ -1371,16 +1387,21 @@ section { padding: 100px 0; }
   section { padding: 72px 0; }
   .hero {
     flex-direction: column;
-    padding: 120px 24px 80px;
-    gap: 48px;
+    padding: 110px 20px 60px;
+    gap: 36px;
     text-align: center;
-    min-height: 100vh;
+    min-height: auto;
   }
-  .hero-left { align-items: center; }
+  .hero-left {
+    align-items: center;
+    text-align: center;
+  }
+  .hero-eyebrow { justify-content: center; }
   .hero-sub { margin: 0 auto; text-align: center; }
   .hero-btns { justify-content: center; }
   .hero-trust { justify-content: center; }
-  .hero-img-wrap { width: 320px; height: 380px; }
+  .hero-trust-item { justify-content: center; }
+  .hero-img-wrap { width: min(300px, 80vw); height: 360px; }
   .benefits-grid { grid-template-columns: repeat(2, 1fr); }
   .products-grid { grid-template-columns: repeat(2, 1fr); }
 }
@@ -1392,50 +1413,101 @@ section { padding: 100px 0; }
     top: 100%; left: 0; right: 0;
     background: var(--ivory);
     flex-direction: column;
-    padding: 24px 28px;
-    gap: 20px;
+    padding: 20px 20px;
+    gap: 18px;
     box-shadow: var(--shadow-md);
     border-top: 1px solid rgba(13,40,24,0.08);
+    z-index: 999;
   }
   .nav-links.open { display: flex; }
   .nav-cta { align-self: flex-start; }
   .hamburger { display: flex; }
-  .about-story-img img { height: 320px; }
-  .testimonial-card { padding: 36px 32px; }
-  .testimonial-card > p { font-size: 1.15rem; }
-  .consult-form-box { padding: 32px 28px; }
-  .footer-grid { grid-template-columns: 1fr; }
-  .footer-links-row { display: contents; }
+  .about-story-img img { height: 280px; }
+  .testimonial-card { padding: 32px 24px; }
+  .testimonial-card > p { font-size: 1.1rem; }
+  .consult-form-box { padding: 28px 22px; }
+  /* Footer: break into single column, links-row becomes normal block flow */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .footer-links-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
   .call-float-bar { padding: 10px 20px; }
+  .consult-grid { gap: 32px; }
+  .contact-grid { gap: 32px; }
 }
 
 @media (max-width: 640px) {
-  section { padding: 60px 0; }
-  .container { padding: 0 18px; }
-  .hero { padding: 100px 18px 60px; }
-  .hero-left h1 { font-size: 2.2rem; }
-  .hero-img-wrap { width: 260px; height: 310px; }
-  .hero-trust { gap: 14px; }
-  .benefits-grid { grid-template-columns: 1fr; gap: 16px; }
-  .products-grid { grid-template-columns: 1fr; }
-  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  section { padding: 56px 0; }
+  .container { padding: 0 16px; }
+  .hero {
+    padding: 90px 16px 50px;
+    gap: 28px;
+    min-height: auto;
+  }
+  .hero-left { width: 100%; align-items: center; text-align: center; }
+  .hero-eyebrow { justify-content: center; }
+  .hero-left h1 { font-size: 2rem; text-align: center; }
+  .hero-sub { text-align: center; }
+  .hero-img-wrap { width: min(240px, 70vw); height: 290px; }
+  .hero-trust { gap: 12px; flex-wrap: wrap; justify-content: center; }
+  .hero-trust-item { font-size: 0.8rem; justify-content: center; }
+  .hero-btns { flex-direction: column; align-items: stretch; width: 100%; }
+  .hero-btns .btn { justify-content: center; width: 100%; }
+  .benefits-grid { grid-template-columns: 1fr; gap: 14px; }
+  .products-grid { grid-template-columns: 1fr; gap: 16px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .stat h2, .counter { font-size: 2.2rem; }
   .reviews-grid { grid-template-columns: 1fr; }
-  .testimonial-card { padding: 28px 22px; }
-  .testimonial-card::before { font-size: 5rem; top: 10px; left: 18px; }
-  .consult-form-box { padding: 24px 18px; }
-  .hero-btns { flex-direction: column; align-items: stretch; }
-  .hero-btns .btn { justify-content: center; }
-  .section-header { margin-bottom: 44px; }
-  .call-float-bar { padding: 10px 16px; gap: 8px; }
-  .call-now-btn { font-size: 0.85rem; padding: 10px 20px; }
-  .call-bar-doctor { width: 38px; height: 38px; }
+  .testimonial-card { padding: 24px 18px; }
+  .testimonial-card::before { font-size: 4.5rem; top: 8px; left: 14px; }
+  .testimonial-card > p { font-size: 1rem; }
+  .consult-form-box { padding: 22px 16px; }
+  .section-header { margin-bottom: 36px; }
+  .call-float-bar { padding: 8px 14px; gap: 8px; }
+  .call-now-btn { font-size: 0.82rem; padding: 9px 16px; gap: 6px; }
+  .call-bar-doctor { width: 36px; height: 36px; }
+  .doctor-online { font-size: 0.82rem; gap: 8px; }
+  .online-dot { width: 8px; height: 8px; }
+  .footer { margin-bottom: 60px; }
+  .about-story-img img { height: 240px; }
+  .product-footer { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .product-footer .btn { width: 100%; justify-content: center; }
+  .modal-box { padding: 28px 18px !important; }
+  .back-to-top { bottom: 72px; right: 16px; width: 40px; height: 40px; font-size: 0.85rem; }
+  .section-header h2 { font-size: 1.7rem; }
+  .benefit-card { padding: 28px 20px; }
+  .consult-left h2 { font-size: 1.6rem; }
+  .about-hero, .products-hero, .testimonials-hero, .contact-hero { padding: 110px 0 60px; }
+  .about-hero h1, .products-hero h1, .testimonials-hero h1, .contact-hero h1 { font-size: 2rem; }
+  .newsletter-form { flex-direction: column; }
+  .newsletter-form .btn { width: 100%; justify-content: center; }
 }
 
 @media (max-width: 480px) {
-  .hero-left h1 { font-size: 1.9rem; }
-  .navbar { height: 68px; }
-  .hero-img-wrap { width: 220px; height: 260px; }
+  .hero-left h1 { font-size: 1.75rem; }
+  .navbar { height: 64px; }
+  .logo img { height: 36px; width: 36px; }
+  .logo-name { font-size: 0.95rem; }
+  .logo-tagline { font-size: 0.6rem; }
+  .hero-img-wrap { width: min(200px, 65vw); height: 240px; }
+  .hero-eyebrow { font-size: 0.65rem; letter-spacing: 2px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .stat { padding: 14px 10px; }
+  .call-float-bar { padding: 8px 10px; }
+  .call-now-btn { font-size: 0.78rem; padding: 8px 14px; }
+  .doctor-online span:last-child { display: none; }
+  .section-tag { font-size: 0.68rem; letter-spacing: 2px; }
+  .footer-grid { gap: 20px; }
+  .footer-links-row { grid-template-columns: 1fr 1fr; }
+  .consult-form-box { padding: 18px 14px; }
+  .testimonial-card { padding: 20px 14px; }
+  .review-card { padding: 24px 18px; }
 }
 
 /* ===================================
