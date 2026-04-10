@@ -10,6 +10,13 @@
 </head>
 <body>
 
+  <!-- PAGE LOADER -->
+  <div id="page-loader">
+    <img src="assets/Trivenlogo.png" alt="Triven" class="loader-logo" />
+    <span class="loader-brand">Triven Ayurveda</span>
+    <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  </div>
+
   <div id="scroll-progress"></div>
 
   <!-- NAVBAR -->
@@ -431,6 +438,22 @@
 
   <script src="Triven.js"></script>
   <script>
+    // Show popup first, reveal site only after close
+    const loader = document.getElementById('page-loader');
+    const modal = document.getElementById('leadModal');
+    const closeModal = document.getElementById('closeModal');
+    if (loader) loader.classList.add('hide');
+    document.body.style.overflow = 'hidden';
+    if (modal) {
+      modal.classList.add('show');
+      modal.style.background = 'var(--forest, #1a3a2a)';
+      function revealSite() {
+        modal.style.background = '';
+        document.body.style.overflow = '';
+      }
+      if (closeModal) closeModal.addEventListener('click', revealSite);
+      modal.addEventListener('click', e => { if (e.target === modal) revealSite(); });
+    }
     const callBarDoc = document.querySelector('.call-bar-doctor');
     const doctors = ['assets/Doctor1.png', 'assets/Doctor2.png'];
     let idx = 0;

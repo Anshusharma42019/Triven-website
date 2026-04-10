@@ -196,23 +196,11 @@ window.addEventListener('load', () => {
   const closeModal = document.getElementById('closeModal');
   
   if (modal) {
-    // Show modal after 1.5 seconds
-    setTimeout(() => {
-      modal.classList.add('show');
-    }, 1500);
-
-    // Close button logic
-    if (closeModal) {
-      closeModal.addEventListener('click', () => {
-        modal.classList.remove('show');
-      });
-    }
-
-    // Close when clicking outside the modal box
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.classList.remove('show');
-      }
+    function closeIt() { modal.classList.remove('show'); }
+    if (closeModal) closeModal.addEventListener('click', closeIt);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeIt(); });
+    document.querySelectorAll('a[href]').forEach(a => {
+      if (!a.getAttribute('href').startsWith('#')) a.addEventListener('click', closeIt);
     });
   }
 });
