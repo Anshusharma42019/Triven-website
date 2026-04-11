@@ -31,7 +31,7 @@ a{text-decoration:none;color:inherit}
 .lp-mob-nav a:hover{background:#f0ede6;color:#0d2818}
 
 /* ===== FORM SECTION ===== */
-.lp-form-wrap{background:#f3f1ef;padding:28px 0 36px}
+.lp-form-wrap{background:#f3f1ef !important;padding:28px 0 36px}
 .lp-form-card{background:#eebd18;padding:24px;border:none;font-size:14px;border-radius:12px;max-width:700px;margin:0 auto;box-shadow:0 8px 32px rgba(13,40,24,0.3);}
 .lp-form-top{text-align:center;margin-bottom:16px}
 .lp-form-top h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:#0d2818;margin-bottom:6px;font-weight:700}
@@ -222,7 +222,9 @@ a{text-decoration:none;color:inherit}
   .lp-plan .col-xl-6:first-child{margin-bottom:24px}
 }
 @media(max-width:480px){
-  .lp-form-card{background:linear-gradient(145deg,#0d2818 0%,#1a3d2b 60%,#2d6a4f 100%);padding:24px;border:none;font-size:14px;border-radius:12px;max-width:700px;margin:0 auto;box-shadow:0 8px 32px rgba(13,40,24,0.3);}
+  .lp-form-card{background:#eebd18 !important;color:#000 !important;}
+  .lp-form-card *{color:#000 !important;}
+  .lp-submit-btn{background:linear-gradient(135deg,#0d2818,#1a3d2b) !important;color:#fff !important;}
   .lp-checks{flex-direction:column}
   .fixed-footer-doc img{height:64px}
   .fixed-call-btn{font-size:0.82rem;padding:9px 20px}

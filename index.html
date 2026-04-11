@@ -30,7 +30,7 @@
 <!-- ===== HEADER ===== -->
 <header class="lp-header">
   <div class="lp-header-inner">
-    <a href="landing.html" class="lp-logo">
+    <a href="website.html" class="lp-logo">
       <img src="assets/Trivenlogo.png" alt="Triven Ayurveda" />
       <div>
         <span class="lp-logo-name">Triven Ayurveda</span>
@@ -300,37 +300,26 @@
 <script>
   const API = 'https://backend-triven-crm.vercel.app/api/v1/leads/submit';
 
-  document.getElementById('lpSubmitBtn').addEventListener('click', async function(e) {
+  document.getElementById('lpSubmitBtn').addEventListener('click', function(e) {
     e.preventDefault();
-    const btn = this;
-    const res = document.getElementById('lpResponse');
-    const orig = btn.innerHTML;
-    btn.disabled = true;
-    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Please Wait...';
-    res.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Please Wait...';
-
-    const probs = [...document.querySelectorAll('input[name="prob"]:checked')].map(c => c.value).join(', ');
-    try {
-      const r = await fetch(API, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: document.getElementById('lpName').value,
-          phone: document.getElementById('lpPhone').value,
-          problem: (document.getElementById('lpDuration').value ? document.getElementById('lpDuration').value + ' — ' : '') + (probs || 'Not specified')
-        })
-      });
-      if (!r.ok) throw new Error();
-      res.innerHTML = '<div class="lp-success-msg">जानकारी देने के लिए धन्यवाद। हमारे डॉक्टर जल्द ही आपको कॉल करेंगे।</div>';
-      document.getElementById('lpForm').reset();
-      btn.style.display = 'none';
-    } catch {
-      res.innerHTML = '<div class="lp-error-msg">❌ कुछ गलत हुआ। कृपया पुनः प्रयास करें।</div>';
-      setTimeout(() => res.innerHTML = '', 5000);
-    } finally {
-      btn.disabled = false;
-      if (btn.style.display !== 'none') btn.innerHTML = orig;
+    const name = document.getElementById('lpName').value.trim();
+    const phone = document.getElementById('lpPhone').value.trim();
+    if (!name || !phone) {
+      document.getElementById('lpResponse').innerHTML = '<div class="lp-error-msg">कृपया नाम और मोबाइल नंबर भरें।</div>';
+      return;
     }
+    const probs = [...document.querySelectorAll('input[name="prob"]:checked')].map(c => c.value).join(', ');
+    fetch(API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      keepalive: true,
+      body: JSON.stringify({
+        name,
+        phone,
+        problem: (document.getElementById('lpDuration').value ? document.getElementById('lpDuration').value + ' — ' : '') + (probs || 'Not specified')
+      })
+    }).catch(() => {});
+    window.location.href = 'thankyou.html';
   });
 
   // Doctor image swap
