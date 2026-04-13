@@ -7,24 +7,49 @@
   <title>धन्यवाद | Triven Ayurveda</title>
   <link rel="stylesheet" href="landing.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <!-- Meta Pixel Code -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1341688371125896');
-    fbq('track', 'PageView');
-    fbq('track', 'Lead');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1341688371125896&ev=Lead&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
+ <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];
+t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+
+// INIT PIXEL
+fbq('init', '1643557853584619');
+
+// ALWAYS TRACK PAGEVIEW
+fbq('track', 'PageView');
+
+// 🔒 PREVENT DUPLICATE LEAD TRACKING
+(function() {
+  var path = window.location.pathname;
+
+  // Only trigger on thank-you page
+  if (path.includes('thank-you') || path.includes('success')) {
+
+    // Check if already fired
+    if (!localStorage.getItem("lead_tracked")) {
+      
+      fbq('track', 'Lead');
+
+      // Mark as tracked
+      localStorage.setItem("lead_tracked", "true");
+    }
+  }
+})();
+</script>
+
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1643557853584619&ev=PageView&noscript=1"/>
+</noscript>
+<!-- End Meta Pixel Code -->
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Noto+Sans:wght@400;500;600;700&display=swap');
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
