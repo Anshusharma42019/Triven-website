@@ -1,11 +1,11 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
-  "rewrites": [
-    { "source": "/about", "destination": "/about.html" },
-    { "source": "/products", "destination": "/products.html" },
-    { "source": "/testimonials", "destination": "/testimonials.html" },
-    { "source": "/contact", "destination": "/contact.html" },
-    { "source": "/thank-you", "destination": "/thankyou.html" }
+  "routes": [
+    { "src": "/thank-you", "dest": "/thankyou.html" },
+    { "src": "/about", "dest": "/about.html" },
+    { "src": "/products", "dest": "/products.html" },
+    { "src": "/testimonials", "dest": "/testimonials.html" },
+    { "src": "/contact", "dest": "/contact.html" }
   ]
 }
