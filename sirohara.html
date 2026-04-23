@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sirohara — Headache Relief | Triven Ayurveda</title>
+  <meta name="description" content="Sirohara by Triven Ayurveda — Herbal oil & tablet combo for headache relief and scalp nourishment. 50% OFF. ₹199 only." />
+  <link rel="stylesheet" href="Triven.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .product-landing { background: var(--cream); padding: 120px 0 80px; }
+    .product-landing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .product-landing-img { border-radius: var(--radius-lg); overflow: hidden; background: var(--ivory); box-shadow: var(--shadow-lg); position: relative; }
+    .product-landing-img img { width: 100%; object-fit: contain; padding: 32px; }
+    .product-landing-img .product-badge { position: absolute; top: 20px; left: 20px; font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 1.5px; text-transform: uppercase; padding: 6px 16px; border-radius: var(--radius-full); }
+    .product-landing-info { display: flex; flex-direction: column; gap: 24px; }
+    .product-landing-info h1 { font-size: clamp(2rem, 4vw, 3rem); color: var(--forest); }
+    .product-landing-info > p { color: var(--text-muted); font-size: 1.05rem; line-height: 1.85; }
+    .product-price-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .product-price-row .price { font-size: 2.2rem; }
+    .product-price-row .price-old { font-size: 1.1rem; }
+    .product-price-row .discount-badge { font-size: 0.85rem; padding: 5px 14px; }
+    .product-features { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .product-features li { display: flex; align-items: center; gap: 12px; font-size: 0.95rem; color: var(--text); font-weight: 500; }
+    .product-features li i { color: var(--sage); font-size: 1rem; flex-shrink: 0; }
+    .product-cta-box { background: var(--white); border-radius: var(--radius-md); padding: 28px; box-shadow: var(--shadow-sm); border: 1px solid rgba(201,168,76,0.15); }
+    .product-cta-box p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 16px; text-align: center; }
+    @media (max-width: 900px) { .product-landing-grid { grid-template-columns: 1fr; gap: 40px; } }
+  </style>
+</head>
+<body>
+
+  <div id="scroll-progress"></div>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="assets/Trivenlogo.png" alt="Triven Ayurveda Logo" />
+        <div class="logo-text">
+          <span class="logo-name">Triven Ayurveda</span>
+          <span class="logo-tagline">Ancient · Pure · Trusted</span>
+        </div>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="products.html" class="active">Products</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="contact.html" class="nav-cta">Free Consult</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="product-landing">
+    <div class="container">
+      <div class="product-landing-grid">
+
+        <div class="product-landing-img reveal-left">
+          <span class="product-badge badge-trending">Trending</span>
+          <img src="assets/productimg5.png" alt="Sirohara" />
+        </div>
+
+        <div class="product-landing-info reveal-right">
+          <span style="font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);">Herbal Oil & Tablet Combo</span>
+          <h1>Sirohara</h1>
+          <p>A powerful Ayurvedic herbal oil and tablet combo for fast headache relief, deep scalp nourishment, and sinus care. Trending for its instant soothing effect.</p>
+
+          <div class="product-price-row">
+            <span class="price-old">₹399</span>
+            <span class="price">₹199</span>
+            <span class="discount-badge">50% OFF</span>
+          </div>
+
+          <ul class="product-features">
+            <li><i class="fas fa-check-circle"></i> Fast Headache & Migraine Relief</li>
+            <li><i class="fas fa-check-circle"></i> Deep Scalp Nourishment</li>
+            <li><i class="fas fa-check-circle"></i> Sinus & Stress Relief</li>
+            <li><i class="fas fa-check-circle"></i> 100% Natural & Lab Tested</li>
+            <li><i class="fas fa-check-circle"></i> Free Pan-India Delivery</li>
+          </ul>
+
+          <div class="product-cta-box">
+            <p>Book a <strong>free consultation</strong> — our expert will call you within 24 hours</p>
+            <form class="contact-form" id="contactForm">
+              <div class="form-group">
+                <input type="text" id="leadName" placeholder="Your Name *" required />
+              </div>
+              <div class="form-group">
+                <input type="tel" id="leadPhone" placeholder="Phone Number *" required />
+              </div>
+              <input type="hidden" id="leadProblem" value="Interested in Sirohara" />
+              <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
+                Get Free Consultation <i class="fas fa-arrow-right"></i>
+              </button>
+              <p class="form-success" id="formSuccess"><i class="fas fa-check-circle"></i> Message sent! We'll contact you soon.</p>
+              <p id="formError" style="color:#e74c3c;display:none;font-size:0.9rem;margin-top:8px;">❌ Something went wrong. Please try again.</p>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-bottom container" style="padding:24px 28px;">
+      <p>© 2025 Triven Ayurveda. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="call-float-bar">
+    <div class="doctor-online">
+      <img src="assets/Doctor1.png" alt="Doctor" class="call-bar-doctor" />
+      <span class="online-dot"></span>
+      <span>डॉक्टर ऑनलाइन हैं!</span>
+    </div>
+    <a href="tel:+917309523829" class="call-now-btn">
+      <i class="fas fa-phone-alt"></i> अभी कॉल करें
+    </a>
+  </div>
+
+  <script src="Triven.js"></script>
+</body>
+</html>
